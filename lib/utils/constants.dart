@@ -1,3 +1,4 @@
+// ignore_for_file: constant_identifier_names
 /// Starting message for the CLI
 const String START_MESSAGE = '''\n
 ╔════════════════════════════════════════════════════╗
@@ -6,7 +7,7 @@ const String START_MESSAGE = '''\n
 \n''';
 
 //MANIFEST DEFAULT CONFIGURATION FOR CHROME EXTENSION
-Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
+const Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
   "name": "NAME",
   "description": "DESCRIPTION",
   "version": "1.0.0",
@@ -21,5 +22,5 @@ Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
 };
 
 //SCRIPT TAG TO BE INSERTED
-String SCRIPT_TAG =
+const String SCRIPT_TAG =
     '''<script src="main.dart.js" type="application/javascript"></script>''';
