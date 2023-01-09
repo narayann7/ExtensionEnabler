@@ -2,7 +2,7 @@ import 'dart:io';
 
 class Logger {
   static void success(String message) {
-    stdout.write('\x1B[32m  $message\x1B[0m');
+    stdout.write('\x1B[32m$message\x1B[0m');
   }
 
   static void error(String message) {
@@ -11,6 +11,10 @@ class Logger {
 
   static void info(String message) {
     stdout.write('\x1B[36m$message\x1B[0m');
+  }
+
+  static void normal(String message) {
+    stdout.write('\x1B[37m$message\x1B[0m');
   }
 
   static void custom(String message, {LogColor logColor = LogColor.white}) {

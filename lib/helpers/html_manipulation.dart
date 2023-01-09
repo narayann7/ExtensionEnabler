@@ -31,6 +31,11 @@ void htmlManipulation() {
     //INSERTING THE SCRIPT TAG INTO THE BODY TAG
     body[0].nodes.insert(0, parseFragment(SCRIPT_TAG));
 
+    //GETTING THE HEAD TAG
+    List<Element> head = document.getElementsByTagName('head');
+    //INSERTING THE STYLE TAG INTO THE HEAD TAG
+    head[0].attributes['style'] = "height: 500px; width: 600px";
+
     //WRITING THE CHANGES TO THE FILE
     indexHtmlFile.writeAsStringSync(document.outerHtml);
   } on FileSystemException {
@@ -39,3 +44,7 @@ void htmlManipulation() {
     stdout.write("Error: $e");
   }
 }
+
+setDimensions() {}
+// <html style="height: 500px; width: 600px">
+
