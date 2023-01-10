@@ -7,7 +7,7 @@ const String START_MESSAGE = '''\n
 \n''';
 
 //MANIFEST DEFAULT CONFIGURATION FOR CHROME EXTENSION
-const Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
+Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
   "name": "NAME",
   "description": "DESCRIPTION",
   "version": "1.0.0",

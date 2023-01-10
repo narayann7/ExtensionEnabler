@@ -1,15 +1,16 @@
 import 'dart:io';
 
+import 'package:extension_enabler/models/extension_details.dart';
 import 'package:extension_enabler/utils/constants.dart';
 import 'package:html/dom.dart';
 import 'package:html/parser.dart';
 import 'package:path/path.dart' as path;
 
-void htmlManipulation() {
+void htmlManipulation({required ExtensionDetails extensionDetails}) {
   try {
     //GETTING THE FILE PATH
     String indexHtmlPath =
-        path.join(Directory.current.path, "web", 'index.html');
+        path.join(Directory.current.path, "testing", 'index.html');
 
     //READING THE FILE FROM THE PATH
     File indexHtmlFile = File(indexHtmlPath);
@@ -34,7 +35,8 @@ void htmlManipulation() {
     //GETTING THE HEAD TAG
     List<Element> head = document.getElementsByTagName('head');
     //INSERTING THE STYLE TAG INTO THE HEAD TAG
-    head[0].attributes['style'] = "height: 500px; width: 600px";
+    head[0].attributes['style'] =
+        "height: ${extensionDetails.height}; width: ${extensionDetails.width}";
 
     //WRITING THE CHANGES TO THE FILE
     indexHtmlFile.writeAsStringSync(document.outerHtml);

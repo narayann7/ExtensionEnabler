@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:extension_enabler/utils/logger.dart';
 
 class ExtensionDetails {
@@ -40,14 +39,12 @@ class ExtensionDetails {
     final String? input = stdin.readLineSync();
     if (input == "") {
       return;
+    } else if (input!.length > 100 || input.length < 3) {
+      Logger.error(
+          "❌ Description should be less than 100 characters and more than 3\n");
+      getDescriptionFromUser();
     } else {
-      if (input!.length > 100 || input.length < 3) {
-        Logger.error(
-            "❌ Description should be less than 100 characters and more than 3\n");
-        getDescriptionFromUser();
-      } else {
-        description = input;
-      }
+      description = input;
     }
   }
 
@@ -56,7 +53,7 @@ class ExtensionDetails {
     try {
       Logger.info("Enter the extension height [current: '$height'] : ");
       final String? input = stdin.readLineSync();
-      height = _checkForVaildDimension(input!).toString();
+      height = "${_checkForVaildDimension(input!)}px";
     } catch (e) {
       //CATCHING THE ERROR AND FORMATTING IT
       Logger.error("❌${e.toString().substring(
@@ -74,7 +71,7 @@ class ExtensionDetails {
     try {
       Logger.info("Enter the extension width [current: '$width'] : ");
       final String? input = stdin.readLineSync();
-      width = _checkForVaildDimension(input!).toString();
+      width = "${_checkForVaildDimension(input!)}px";
     } catch (e) {
       //CATCHING THE ERROR AND FORMATTING IT
       Logger.error("❌${e.toString().substring(
@@ -91,7 +88,9 @@ class ExtensionDetails {
   getVersionFromUser() {
     Logger.info("Enter the extension version [current: '$version'] : ");
     final String? input = stdin.readLineSync();
-    if (_validateVersion(input!)) {
+    if (input == "") {
+      return;
+    } else if (_validateVersion(input!)) {
       version = input;
     } else {
       Logger.error("❌ Invalid version format\n");
@@ -128,6 +127,6 @@ class ExtensionDetails {
 
   @override
   String toString() {
-    return 'ExtensionDetails(name: $name, description: $description, version: $version, extensionWidth: $width, extensionHeight: $height)';
+    return 'ExtensionDetails(name: $name, description: $description, version: $version, width: $width, height: $height)';
   }
 }
