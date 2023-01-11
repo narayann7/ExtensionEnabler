@@ -32,7 +32,7 @@ void htmlManipulation({required ExtensionDetails extensionDetails}) {
     List<Element> head = document.getElementsByTagName('head');
     //INSERTING THE STYLE TAG INTO THE HEAD TAG
     head[0].attributes['style'] =
-        "height: ${extensionDetails.height}; width: ${extensionDetails.width}";
+        "height: ${extensionDetails.height}; width: ${extensionDetails.width};";
 
     //WRITING THE CHANGES TO THE FILE
     indexHtml.writeToFile(document.outerHtml);

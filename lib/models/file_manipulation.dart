@@ -14,17 +14,12 @@ class FileManipulation {
     required String fileName,
   }) {
     _filePath = path.join(Directory.current.path, filePath, fileName);
-    _init();
-  }
-
-  //INITIALIZE THE FILE AND THE DOCUMENT
-  _init() {
     _file = File(_filePath!);
-    String documentAsString = getFileAsString();
-    _document = parse(documentAsString);
   }
 
   get document {
+    String documentAsString = getFileAsString();
+    _document = parse(documentAsString);
     if (_filePath == null || _filePath == "") {
       throw Exception("File path not set");
     } else {
