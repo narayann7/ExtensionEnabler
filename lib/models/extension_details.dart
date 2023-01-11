@@ -111,14 +111,11 @@ class ExtensionDetails {
         //IF THE USER DOESN'T ENTER ANYTHING THEN RETURN THE DEFAULT VALUE
         return "200px";
       }
-
       final int height = int.parse(dimension);
-
       if (!(height >= 100 && height <= 800)) {
         throw Exception(
             "Please enter a valid number between 100 and 800 (inclusive)");
       }
-
       return dimension;
     } on FormatException {
       throw Exception("Please enter a valid dimension (don't use px)");

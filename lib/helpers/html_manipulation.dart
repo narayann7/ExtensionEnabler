@@ -1,25 +1,21 @@
 import 'dart:io';
 
 import 'package:extension_enabler/models/extension_details.dart';
+import 'package:extension_enabler/models/file_manipulation.dart';
 import 'package:extension_enabler/utils/constants.dart';
+import 'package:extension_enabler/utils/logger.dart';
 import 'package:html/dom.dart';
 import 'package:html/parser.dart';
-import 'package:path/path.dart' as path;
 
 void htmlManipulation({required ExtensionDetails extensionDetails}) {
   try {
-    //GETTING THE FILE PATH
-    String indexHtmlPath =
-        path.join(Directory.current.path, "testing", 'index.html');
+    FileManipulation indexHtml = FileManipulation();
 
-    //READING THE FILE FROM THE PATH
-    File indexHtmlFile = File(indexHtmlPath);
+    //SETTING THE FILE PATH
+    indexHtml.setFilePath(filePath: "testing", fileName: "index.html");
 
-    //READING THE FILE CONTENT AS STRING
-    String documentAsString = indexHtmlFile.readAsStringSync();
-
-    //PARSING THE STRING TO HTML DOCUMENT
-    Document document = parse(documentAsString);
+    //GETTING THE DOCUMENT
+    Document document = indexHtml.document;
 
     //REMOVING ALL THE SCRIPT TAG'S
     List<Element> scriptTags = document.getElementsByTagName('script');
@@ -39,14 +35,10 @@ void htmlManipulation({required ExtensionDetails extensionDetails}) {
         "height: ${extensionDetails.height}; width: ${extensionDetails.width}";
 
     //WRITING THE CHANGES TO THE FILE
-    indexHtmlFile.writeAsStringSync(document.outerHtml);
+    indexHtml.writeToFile(document.outerHtml);
   } on FileSystemException {
     stdout.write("file not found");
   } catch (e) {
-    stdout.write("Error: $e");
+    Logger.error("❌${e.toString()}");
   }
 }
-
-setDimensions() {}
-// <html style="height: 500px; width: 600px">
-

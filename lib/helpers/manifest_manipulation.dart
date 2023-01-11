@@ -1,17 +1,15 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:extension_enabler/models/extension_details.dart';
+import 'package:extension_enabler/models/file_manipulation.dart';
 import 'package:extension_enabler/utils/constants.dart';
-import 'package:path/path.dart' as path;
+import 'package:extension_enabler/utils/logger.dart';
 
 manifestManipulation({required ExtensionDetails extensionDetails}) {
-  //GETTING THE MANIFEST FILE PATH
-  String manifestPath =
-      path.join(Directory.current.path, "testing", 'manifest.json');
+  FileManipulation manifestJson = FileManipulation();
 
-  //OPENING THE MANIFEST FILE
-  File manifestJsonFile = File(manifestPath);
+  //SETTING THE FILE PATH
+  manifestJson.setFilePath(filePath: "testing", fileName: "manifest.json");
 
   //COPYING THE CONSTANTS MANIFEST CONFIG TO A NEW MAP
   //SO THAT WE CAN CHANGE THE VALUES ACCORDING TO THE USER INPUT
@@ -25,5 +23,9 @@ manifestManipulation({required ExtensionDetails extensionDetails}) {
       JsonEncoder.withIndent('  ').convert(MANIFEST_DEFAULT_CONFIG);
 
   //REPLACE THE MANIFEST FILE WITH THE NEW CONFIG
-  manifestJsonFile.writeAsStringSync(configManifest);
+  manifestJson.writeToFile(configManifest);
+
+  try {} catch (e) {
+    Logger.error("❌${e.toString()}");
+  }
 }

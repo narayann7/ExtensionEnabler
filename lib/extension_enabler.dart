@@ -18,4 +18,11 @@ void mainx(List<String> arguments) async {
     htmlManipulation(extensionDetails: extensionDetails);
     manifestManipulation(extensionDetails: extensionDetails);
   }
+  // parcer.addFlag("enable");
+  // final results = parcer.parse(arguments);
+  // if (results["enable"] == true) {
+  //   ExtensionDetails extensionDetails = getExtensionDetails();
+  //   htmlManipulation(extensionDetails: extensionDetails);
+  //   manifestManipulation(extensionDetails: extensionDetails);
+  // }
 }
