@@ -6,7 +6,7 @@ import 'package:extension_enabler/models/file_manipulation.dart';
 import 'package:extension_enabler/utils/logger.dart';
 import 'package:html/dom.dart';
 
-ExtensionDetails updateExtension() {
+ExtensionDetails getExtractedData() {
   //EXTRACT DATA
   FileManipulation tempFile = FileManipulation();
   ExtensionDetails extensionDetails = ExtensionDetails();
@@ -24,7 +24,6 @@ ExtensionDetails updateExtension() {
     List<Element> head = document.getElementsByTagName("head");
 
     String style = head[0].attributes["style"]!;
-    print(style);
 
     //GET CURRENT HEIGHT
     extensionDetails.height = style.substring(

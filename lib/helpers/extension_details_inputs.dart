@@ -14,8 +14,8 @@ ExtensionDetails getExtensionDetails({ExtensionDetails? details}) {
   extensionDetails.getNameFromUser();
   extensionDetails.getDescriptionFromUser();
   extensionDetails.getVersionFromUser();
-  extensionDetails.getWidthFromUser();
   extensionDetails.getHeightFromUser();
+  extensionDetails.getWidthFromUser();
 
   return extensionDetails;
 }

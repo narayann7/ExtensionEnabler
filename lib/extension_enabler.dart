@@ -1,27 +1,16 @@
-import 'package:args/args.dart';
-import 'package:extension_enabler/helpers/extract_data.dart';
+import 'package:args/command_runner.dart';
+import 'package:extension_enabler/commands/enable_extension.dart';
+import 'package:extension_enabler/commands/update_extension.dart';
 import 'package:extension_enabler/utils/logger.dart';
-import 'package:extension_enabler/utils/constants.dart';
 
 void main(List<String> arguments) async {
-  Logger.normal(START_MESSAGE);
-
-  final parcer = ArgParser();
-
-  parcer.addFlag("update", abbr: "u");
-
-  final results = parcer.parse(arguments);
-  if (results["update"] == true) {
-    updateExtension();
-    // ExtensionDetails extensionDetails = getExtensionDetails();
-    // htmlManipulation(extensionDetails: extensionDetails);
-    // manifestManipulation(extensionDetails: extensionDetails);
+  try {
+    CommandRunner runner =
+        CommandRunner("enable_extension", "Enable an extension")
+          ..addCommand(EnableExtension())
+          ..addCommand(UpdateExtension());
+    runner.run(arguments);
+  } catch (e) {
+    Logger.error("❌${e.toString()}");
   }
-  // parcer.addFlag("enable");
-  // final results = parcer.parse(arguments);
-  // if (results["enable"] == true) {
-  //   ExtensionDetails extensionDetails = getExtensionDetails();
-  //   htmlManipulation(extensionDetails: extensionDetails);
-  //   manifestManipulation(extensionDetails: extensionDetails);
-  // }
 }
