@@ -109,7 +109,7 @@ class ExtensionDetails {
     try {
       if (dimension == "") {
         //IF THE USER DOESN'T ENTER ANYTHING THEN RETURN THE DEFAULT VALUE
-        return "200px";
+        return "200";
       }
       final int height = int.parse(dimension);
       if (!(height >= 100 && height <= 800)) {

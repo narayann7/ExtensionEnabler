@@ -2,8 +2,6 @@
 
 import 'package:extension_enabler/utils/logger.dart';
 
-const isDev = "web";
-
 /// STARTING MESSAGE FOR THE CLI
 const String START_MESSAGE = '''\n
 ╔════════════════════════════════════════════════════╗
@@ -40,14 +38,14 @@ const String SCRIPT_TAG =
 
 /// ENDING MESSAGE FOR THE CLI
 const String END_MESSAGE = '''\n
-🎉🎉🎉 Extension enabled successfully 🎉🎉🎉
-💖💖💖  Happy Coding & Keep Learning  💖💖💖
+🎉 Extension enabled successfully 🎉
+💖  Happy Coding & Keep Learning  💖
 
 ''';
 
 const String UPDATE_END_MESSAGE = '''\n
-🎉🎉🎉 Extension updated successfully 🎉🎉🎉
-💖💖💖  Happy Coding & Keep Learning  💖💖💖
+🎉 Extension updated successfully 🎉
+💖  Happy Coding & Keep Learning  💖
 
 ''';
 

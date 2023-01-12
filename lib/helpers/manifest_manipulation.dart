@@ -1,17 +1,17 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:extension_enabler/utils/logger.dart';
+import 'package:extension_enabler/utils/constants.dart';
 import 'package:extension_enabler/models/extension_details.dart';
 import 'package:extension_enabler/models/file_manipulation.dart';
-import 'package:extension_enabler/utils/constants.dart';
-import 'package:extension_enabler/utils/logger.dart';
 
 manifestManipulation({required ExtensionDetails extensionDetails}) {
   try {
     FileManipulation manifestJson = FileManipulation();
 
     //SETTING THE FILE PATH
-    manifestJson.setFilePath(filePath: isDev, fileName: "manifest.json");
+    manifestJson.setFilePath(filePath: "web", fileName: "manifest.json");
 
     //COPYING THE CONSTANTS MANIFEST CONFIG TO A NEW MAP
     //SO THAT WE CAN CHANGE THE VALUES ACCORDING TO THE USER INPUT
@@ -27,6 +27,7 @@ manifestManipulation({required ExtensionDetails extensionDetails}) {
     //REPLACE THE MANIFEST FILE WITH THE NEW CONFIG
     manifestJson.writeToFile(configManifest);
   } on FileSystemException catch (e) {
+    //IF THE FILE IS NOT FOUND
     getErrorForFileNotFound();
     Logger.error("❌ ${e.toString()}");
     exit(1);

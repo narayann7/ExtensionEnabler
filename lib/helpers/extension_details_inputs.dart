@@ -1,5 +1,5 @@
-import 'package:extension_enabler/models/extension_details.dart';
 import 'package:extension_enabler/utils/logger.dart';
+import 'package:extension_enabler/models/extension_details.dart';
 
 //GET EXTENSION DETAILS FROM USER
 //THE CAUSE OF details AS OPTIONAL IS TO USE IN TWO CASES
