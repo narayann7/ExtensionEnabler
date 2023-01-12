@@ -12,7 +12,7 @@ void htmlManipulation({required ExtensionDetails extensionDetails}) {
     FileManipulation indexHtml = FileManipulation();
 
     //SETTING THE FILE PATH
-    indexHtml.setFilePath(filePath: "testing", fileName: "index.html");
+    indexHtml.setFilePath(filePath: isDev, fileName: "index.html");
 
     //GETTING THE DOCUMENT
     Document document = indexHtml.document;
@@ -36,9 +36,12 @@ void htmlManipulation({required ExtensionDetails extensionDetails}) {
 
     //WRITING THE CHANGES TO THE FILE
     indexHtml.writeToFile(document.outerHtml);
-  } on FileSystemException {
-    stdout.write("file not found");
+  } on FileSystemException catch (e) {
+    getErrorForFileNotFound();
+    Logger.error("❌ ${e.toString()}");
+    exit(1);
   } catch (e) {
-    Logger.error("❌${e.toString()}");
+    Logger.error("❌ ${e.toString()}");
+    exit(1);
   }
 }

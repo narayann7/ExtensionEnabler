@@ -1,4 +1,9 @@
 // ignore_for_file: constant_identifier_names
+
+import 'package:extension_enabler/utils/logger.dart';
+
+const isDev = "web";
+
 /// STARTING MESSAGE FOR THE CLI
 const String START_MESSAGE = '''\n
 ╔════════════════════════════════════════════════════╗
@@ -45,3 +50,11 @@ const String UPDATE_END_MESSAGE = '''\n
 💖💖💖  Happy Coding & Keep Learning  💖💖💖
 
 ''';
+
+getErrorForFileNotFound() {
+  Logger.error(
+      "\n❌ Error: file not found, make sure there is web/index.html and web/manifest.json in your project\n");
+
+  Logger.normal("\nenable web support in your project\n");
+  Logger.normal("to know more: https://docs.flutter.dev/web\n\n");
+}

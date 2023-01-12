@@ -22,5 +22,7 @@ class UpdateExtension extends Command {
     manifestManipulation(extensionDetails: extensionDetails);
 
     Logger.normal(UPDATE_END_MESSAGE);
+    //todo
+    // bool isIcon = argResults!.arguments.toList().contains("--icon");
   }
 }

@@ -1,4 +1,5 @@
 import 'package:args/command_runner.dart';
+import 'package:extension_enabler/commands/build.dart';
 import 'package:extension_enabler/commands/enable_extension.dart';
 import 'package:extension_enabler/commands/update_extension.dart';
 import 'package:extension_enabler/utils/logger.dart';
@@ -8,9 +9,10 @@ void main(List<String> arguments) async {
     CommandRunner runner =
         CommandRunner("enable_extension", "Enable an extension")
           ..addCommand(EnableExtension())
-          ..addCommand(UpdateExtension());
+          ..addCommand(UpdateExtension())
+          ..addCommand(BuildExtension());
     runner.run(arguments);
   } catch (e) {
-    Logger.error("❌${e.toString()}");
+    Logger.error("❌ ${e.toString()}");
   }
 }

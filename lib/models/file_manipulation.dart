@@ -13,8 +13,12 @@ class FileManipulation {
     required String filePath,
     required String fileName,
   }) {
-    _filePath = path.join(Directory.current.path, filePath, fileName);
-    _file = File(_filePath!);
+    try {
+      _filePath = path.join(Directory.current.path, filePath, fileName);
+      _file = File(_filePath!);
+    } catch (e) {
+      rethrow;
+    }
   }
 
   get document {
