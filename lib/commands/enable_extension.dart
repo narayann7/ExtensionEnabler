@@ -17,13 +17,13 @@ class EnableExtension extends Command {
   @override
   run() {
     try {
-      Logger.normal(START_MESSAGE);
+      Logger.normal(startMessage);
 
       ExtensionDetails extensionDetails = getExtensionDetails();
       htmlManipulation(extensionDetails: extensionDetails);
       manifestManipulation(extensionDetails: extensionDetails);
 
-      Logger.normal(END_MESSAGE);
+      Logger.normal(endMessage);
 
       Logger.success(
           "\n🛠️  to build the extension run: flutter pub run extension_enabler build\n\n");

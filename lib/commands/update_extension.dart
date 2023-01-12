@@ -16,14 +16,14 @@ class UpdateExtension extends Command {
   @override
   void run() {
     try {
-      Logger.normal(UPDATE_MESSAGE);
+      Logger.normal(updateMessage);
 
       ExtensionDetails extensionDetails = getExtractedData();
       extensionDetails = getExtensionDetails(details: extensionDetails);
       htmlManipulation(extensionDetails: extensionDetails);
       manifestManipulation(extensionDetails: extensionDetails);
 
-      Logger.normal(UPDATE_END_MESSAGE);
+      Logger.normal(updateEndMessage);
 
       Logger.success(
           "\n🛠️  to build the extension run: flutter pub run extension_enabler build\n");

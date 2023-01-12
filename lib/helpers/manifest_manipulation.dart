@@ -15,14 +15,14 @@ manifestManipulation({required ExtensionDetails extensionDetails}) {
 
     //COPYING THE CONSTANTS MANIFEST CONFIG TO A NEW MAP
     //SO THAT WE CAN CHANGE THE VALUES ACCORDING TO THE USER INPUT
-    Map<String, dynamic> manifestConfig = MANIFEST_DEFAULT_CONFIG;
+    Map<String, dynamic> manifestConfig = manifestDefaultConfig;
     manifestConfig['name'] = extensionDetails.name;
     manifestConfig['description'] = extensionDetails.description;
     manifestConfig['version'] = extensionDetails.version;
 
     //CONVERTING THE MANIFEST_DEFAULT_CONFIG TO STRING WITH INDENTATION
     String configManifest =
-        JsonEncoder.withIndent('  ').convert(MANIFEST_DEFAULT_CONFIG);
+        JsonEncoder.withIndent('  ').convert(manifestDefaultConfig);
 
     //REPLACE THE MANIFEST FILE WITH THE NEW CONFIG
     manifestJson.writeToFile(configManifest);

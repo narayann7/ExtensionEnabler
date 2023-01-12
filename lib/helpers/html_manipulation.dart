@@ -26,7 +26,7 @@ void htmlManipulation({required ExtensionDetails extensionDetails}) {
     //GETTING THE BODY TAG
     List<Element> body = document.getElementsByTagName('body');
     //INSERTING THE SCRIPT TAG INTO THE BODY TAG
-    body[0].nodes.insert(0, parseFragment(SCRIPT_TAG));
+    body[0].nodes.insert(0, parseFragment(scriptTag));
 
     //GETTING THE HTML TAG
     List<Element> html = document.getElementsByTagName('html');

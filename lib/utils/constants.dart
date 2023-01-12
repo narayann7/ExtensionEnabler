@@ -1,15 +1,13 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:extension_enabler/utils/logger.dart';
 
 /// STARTING MESSAGE FOR THE CLI
-const String START_MESSAGE = '''\n
+const String startMessage = '''\n
 ╔════════════════════════════════════════════════════╗
 ║             ⚡⚡  Extension Enabler  ⚡⚡          ║
 ╠════════════════════════════════════════════════════╣
 \n''';
 
-const String UPDATE_MESSAGE = '''\n
+const String updateMessage = '''\n
 ╔════════════════════════════════════════════════════╗
 ║             ⚙️⚙️ Update Extension  ⚙️⚙️            ║
 ╠════════════════════════════════════════════════════╣
@@ -18,7 +16,7 @@ const String UPDATE_MESSAGE = '''\n
 
 //MANIFEST DEFAULT CONFIGURATION FOR CHROME EXTENSION
 //ITS IS NOT CONSTANT BEACUSE WE WILL BE ADDING MORE CONFIGURATION LATER
-Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
+Map<String, dynamic> manifestDefaultConfig = {
   "name": "NAME",
   "description": "DESCRIPTION",
   "version": "1.0.0",
@@ -33,19 +31,19 @@ Map<String, dynamic> MANIFEST_DEFAULT_CONFIG = {
 };
 
 //SCRIPT TAG TO BE INSERTED
-const String SCRIPT_TAG =
+const String scriptTag =
     '''<script src="main.dart.js" type="application/javascript"></script>''';
 
 /// ENDING MESSAGE FOR THE CLI
-const String END_MESSAGE = '''\n
-🎉 Extension enabled successfully 🎉
-💖  Happy Coding & Keep Learning  💖
+const String endMessage = '''\n
+Extension enabled successfully 🎉
+Happy Coding & Keep Learning   💖
 
 ''';
 
-const String UPDATE_END_MESSAGE = '''\n
-🎉 Extension updated successfully 🎉
-💖  Happy Coding & Keep Learning  💖
+const String updateEndMessage = '''\n
+Extension updated successfully 🎉
+Happy Coding & Keep Learning   💖
 
 ''';
 

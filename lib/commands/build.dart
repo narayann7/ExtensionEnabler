@@ -15,7 +15,7 @@ class BuildExtension extends Command {
   @override
   Future<void> run() async {
     Logger.success(
-        'When making changes to the extension, run this command to rebuild the project.\n');
+        'When making changes to the flutter app, run this command to rebuild the project.\n');
     Process.start(
       'flutter',
       ["build", "web", "--web-renderer", "html", "--csp"],
