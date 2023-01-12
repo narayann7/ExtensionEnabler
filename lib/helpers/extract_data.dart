@@ -18,34 +18,44 @@ ExtensionDetails getExtractedData() {
     //CONVERT THE JSON FILE TO A MAP
     Map<String, dynamic> manifest = jsonDecode(tempFile.getFileAsString());
 
-    //GET THE DATA FROM THE MAP
-    extensionDetails.name = manifest["name"];
-    extensionDetails.version = manifest["version"];
-    extensionDetails.description = manifest["description"];
+    bool isExtensionEnabled = manifest["manifest_version"] ?? false;
 
-    //SET THE FILE PATH FOR INDEX.HTML
-    tempFile.setFilePath(filePath: "web", fileName: "index.html");
-    //GET THE HTML FILE AS A DOCUMENT
-    Document document = tempFile.document;
-    //FIND THE HEAD TAG
-    List<Element> html = document.getElementsByTagName("html");
-    //GET THE STYLE ATTRIBUTE
-    String style = html[0].attributes["style"]!;
+    if (isExtensionEnabled) {
+//GET THE DATA FROM THE MAP
+      extensionDetails.name = manifest["name"];
+      extensionDetails.version = manifest["version"];
+      extensionDetails.description = manifest["description"];
 
-    //IN EXAMPLE
-    //style="height: 456px; width: 234px;"
+      //SET THE FILE PATH FOR INDEX.HTML
+      tempFile.setFilePath(filePath: "web", fileName: "index.html");
+      //GET THE HTML FILE AS A DOCUMENT
+      Document document = tempFile.document;
+      //FIND THE HEAD TAG
+      List<Element> html = document.getElementsByTagName("html");
+      //GET THE STYLE ATTRIBUTE
+      String style = html[0].attributes["style"]!;
 
-    //GET CURRENT HEIGHT
-    extensionDetails.height = style.substring(
-      style.indexOf("height: ") + 8,
-      style.indexOf("px"),
-    );
-    //GET CURRENT WIDTH
-    extensionDetails.width = style.substring(
-      style.indexOf("width: ") + 7,
-      style.lastIndexOf("px"),
-    );
-    return extensionDetails;
+      //IN EXAMPLE
+      //style="height: 456px; width: 234px;"
+
+      //GET CURRENT HEIGHT
+      extensionDetails.height = style.substring(
+        style.indexOf("height: ") + 8,
+        style.indexOf("px"),
+      );
+      //GET CURRENT WIDTH
+      extensionDetails.width = style.substring(
+        style.indexOf("width: ") + 7,
+        style.lastIndexOf("px"),
+      );
+      return extensionDetails;
+    } else {
+      Logger.error("❌ Extension is not enabled\n");
+      Logger.normal(
+          "To enable the extension, run the command [flutter pub run extension_enabler enable]\n");
+
+      exit(1);
+    }
   } on FileSystemException catch (e) {
     //IF THE FILE IS NOT FOUND
     getErrorForFileNotFound();

@@ -7,12 +7,12 @@ import 'package:extension_enabler/commands/update_extension.dart';
 
 void main(List<String> arguments) async {
   try {
-    CommandRunner runner =
-        CommandRunner("enable_extension", "Enable an extension")
-          ..addCommand(EnableExtension())
-          ..addCommand(UpdateExtension())
-          ..addCommand(BuildExtension())
-          ..addCommand(TipsForExtension());
+    CommandRunner runner = CommandRunner("enable_extension",
+        "Enable web as extension for chromium based browsers")
+      ..addCommand(EnableExtension())
+      ..addCommand(UpdateExtension())
+      ..addCommand(BuildExtension())
+      ..addCommand(TipsForExtension());
     runner.run(arguments);
   } catch (e) {
     Logger.error("❌ ${e.toString()}");
