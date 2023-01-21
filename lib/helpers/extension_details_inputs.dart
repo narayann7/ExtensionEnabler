@@ -10,11 +10,15 @@ ExtensionDetails getExtensionDetails({ExtensionDetails? details}) {
 
   Logger.normal("🌱 Enter the extension details: \n");
   Logger.normal("ℹ️ Press enter to keep the current value\n\n");
-
+  //GET THE EXTENSION NAME FROM THE USER
   extensionDetails.getNameFromUser();
+  //GET THE EXTENSION DESCRIPTION FROM THE USER
   extensionDetails.getDescriptionFromUser();
+  //GET THE EXTENSION VERSION FROM THE USER
   extensionDetails.getVersionFromUser();
+  //GET THE EXTENSION HEIGHT FROM THE USER
   extensionDetails.getHeightFromUser();
+  //GET THE EXTENSION WIDTH FROM THE USER
   extensionDetails.getWidthFromUser();
 
   return extensionDetails;

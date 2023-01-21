@@ -19,6 +19,7 @@ class ExtensionDetails {
   //TO GET NAME FROM USER AND CHECK IF IT IS VALID FROM CLI
   getNameFromUser() {
     Logger.info("Enter the extension name [current: '$name'] : ");
+    //READING THE INPUT FROM CLI
     final String? input = stdin.readLineSync();
     if (input == "") {
       return;
@@ -26,6 +27,7 @@ class ExtensionDetails {
       if (input!.length > 20 || input.length < 3) {
         Logger.error(
             "❌ Name should be less than 20 characters and more than 3\n");
+        //AGAIN CALLING THE FUNCTION TO GET THE NAME IF IT IS INVALID
         getNameFromUser();
       } else {
         name = input;
@@ -36,12 +38,14 @@ class ExtensionDetails {
   //TO GET DESCRIPTION FROM USER AND CHECK IF IT IS VALID FROM CLI
   getDescriptionFromUser() {
     Logger.info("Enter the extension description [current: '$description'] : ");
+    //READING THE INPUT FROM CLI
     final String? input = stdin.readLineSync();
     if (input == "") {
       return;
     } else if (input!.length > 100 || input.length < 3) {
       Logger.error(
           "❌ Description should be less than 100 characters and more than 3\n");
+      //AGAIN CALLING THE FUNCTION TO GET THE DESCRIPTION IF IT IS INVALID
       getDescriptionFromUser();
     } else {
       description = input;
@@ -52,7 +56,9 @@ class ExtensionDetails {
   getHeightFromUser() {
     try {
       Logger.info("Enter the extension height [current: '$height'] : ");
+      //READING THE INPUT FROM CLI
       final String? input = stdin.readLineSync();
+      //CHECKING IF THE INPUT IS VALID
       height = "${_checkForVaildDimension(input!)}px";
     } catch (e) {
       //CATCHING THE ERROR AND FORMATTING IT
@@ -70,7 +76,9 @@ class ExtensionDetails {
   getWidthFromUser() {
     try {
       Logger.info("Enter the extension width [current: '$width'] : ");
+      //READING THE INPUT FROM CLI
       final String? input = stdin.readLineSync();
+      //CHECKING IF THE INPUT IS VALID
       width = "${_checkForVaildDimension(input!)}px";
     } catch (e) {
       //CATCHING THE ERROR AND FORMATTING IT
@@ -87,10 +95,13 @@ class ExtensionDetails {
   //TO GET VERSION FROM USER AND CHECK IF IT IS VALID FROM CLI
   getVersionFromUser() {
     Logger.info("Enter the extension version [current: '$version'] : ");
+    //READING THE INPUT FROM CLI
     final String? input = stdin.readLineSync();
     if (input == "") {
       return;
-    } else if (_validateVersion(input!)) {
+    }
+    //CHECKING IF THE INPUT IS VALID
+    else if (_validateVersion(input!)) {
       version = input;
     } else {
       Logger.error("❌ Invalid version format\n");
@@ -100,6 +111,7 @@ class ExtensionDetails {
 
   //TO VALIDATE THE VERSION
   bool _validateVersion(String version) {
+    //REGEX TO CHECK IF THE VERSION IS VALID
     final RegExp versionRegex = RegExp(r"^\d+\.\d+\.\d+$");
     return versionRegex.hasMatch(version.toString());
   }
@@ -112,6 +124,7 @@ class ExtensionDetails {
         return "200";
       }
       final int height = int.parse(dimension);
+      //CHECKING IF THE DIMENSION IS BETWEEN 100 AND 800
       if (!(height >= 100 && height <= 800)) {
         throw Exception(
             "Please enter a valid number between 100 and 800 (inclusive)");

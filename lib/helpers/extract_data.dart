@@ -21,7 +21,7 @@ ExtensionDetails getExtractedData() {
     bool isExtensionEnabled = manifest["manifest_version"] ?? false;
 
     if (isExtensionEnabled) {
-//GET THE DATA FROM THE MAP
+      //GET THE DATA FROM THE MAP
       extensionDetails.name = manifest["name"];
       extensionDetails.version = manifest["version"];
       extensionDetails.description = manifest["description"];

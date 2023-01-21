@@ -1,3 +1,3 @@
-## 1.0.3
+## 1.0.4
 
-- added example and readme
+- bug fixes and minor doc updates

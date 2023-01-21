@@ -18,9 +18,11 @@ class EnableExtension extends Command {
   run() {
     try {
       Logger.normal(startMessage);
-
+      //GET THE EXTENSION DETAILS FROM THE USER.
       ExtensionDetails extensionDetails = getExtensionDetails();
+      //MANIPULATE THE HTML FILE.
       htmlManipulation(extensionDetails: extensionDetails);
+      //MANIPULATE THE MANIFEST FILE.
       manifestManipulation(extensionDetails: extensionDetails);
 
       Logger.normal(endMessage);

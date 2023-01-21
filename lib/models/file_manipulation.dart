@@ -14,6 +14,7 @@ class FileManipulation {
     required String fileName,
   }) {
     try {
+      //GET THE CURRENT DIRECTORY PATH WITH THE FILE PATH AND FILE NAME
       _filePath = path.join(Directory.current.path, filePath, fileName);
       _file = File(_filePath!);
     } catch (e) {
@@ -22,7 +23,9 @@ class FileManipulation {
   }
 
   get document {
+    //GET THE FILE AS A STRING
     String documentAsString = getFileAsString();
+    //PARSE THE STRING TO A DOCUMENT
     _document = parse(documentAsString);
     if (_filePath == null || _filePath == "") {
       throw Exception("File path not set");

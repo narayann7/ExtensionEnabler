@@ -17,10 +17,13 @@ class UpdateExtension extends Command {
   void run() {
     try {
       Logger.normal(updateMessage);
-
+      //EXTRACT THE DATA FROM THE HTML AND MANIFEST FILES.
       ExtensionDetails extensionDetails = getExtractedData();
+      //GET THE EXTENSION DETAILS FROM THE USER.
       extensionDetails = getExtensionDetails(details: extensionDetails);
+      //MANIPULATE THE HTML FILE.
       htmlManipulation(extensionDetails: extensionDetails);
+      //MANIPULATE THE MANIFEST FILE.
       manifestManipulation(extensionDetails: extensionDetails);
 
       Logger.normal(updateEndMessage);

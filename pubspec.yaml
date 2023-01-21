@@ -1,6 +1,6 @@
 name: extension_enabler
 description: A command line tool that enables flutter web app as chromium based extension with simple commands.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/narayann7/ExtensionEnabler
 
 environment:
