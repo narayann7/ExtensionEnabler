@@ -20,7 +20,7 @@ or add it as dev dependency in your pubspec.yaml:
 
 ```
 dev_dependencies:
-  extension_enabler: ^1.0.2
+  extension_enabler: ^1.0.4
 ```
 
 ### Stepwise Guide :
@@ -76,7 +76,6 @@ flutter pub run extension_enabler --help
 ![image](https://user-images.githubusercontent.com/64174995/212167844-45ae43f3-036e-4211-bb81-b443b2222908.png)
 
 - If you are facing any issues 🤔 feel free to create issues : [here](https://github.com/narayann7/ExtensionEnabler/issues)
-
 - if want to improve 🛠️ the package, you are welcome 🙏 : [here](https://github.com/narayann7/ExtensionEnabler)
 
 ---
