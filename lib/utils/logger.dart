@@ -1,27 +1,39 @@
 import 'dart:io';
 
+//LOGGER CLASS
 class Logger {
+  //SUCCESS MESSAGE
   static void success(String message) {
+    //SET THE COLOR TO GREEN
     stdout.write('\x1B[32m$message\x1B[0m');
   }
 
+  //ERROR MESSAGE
   static void error(String message) {
+    //SET THE COLOR TO RED
     stdout.write('\x1B[31m$message\x1B[0m');
   }
 
+  //INFO MESSAGE
   static void info(String message) {
+    //SET THE COLOR TO BLUE
     stdout.write('\x1B[36m$message\x1B[0m');
   }
 
+  //NORMAL MESSAGE
   static void normal(String message) {
+    //SET THE COLOR TO WHITE
     stdout.write('\x1B[37m$message\x1B[0m');
   }
 
+  //CUSTOM MESSAGE
   static void custom(String message, {LogColor logColor = LogColor.white}) {
     final color = _getColourCodes(color: logColor);
+    //SET THE COLOR TO CUSTOM
     stdout.write('$color$message\x1B[0m');
   }
 
+  //GET THE COLOR CODES
   static _getColourCodes({
     required LogColor color,
   }) {
@@ -46,6 +58,7 @@ class Logger {
   }
 }
 
+//ENUM FOR COLORS
 enum LogColor {
   reset,
   black,

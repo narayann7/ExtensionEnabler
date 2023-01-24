@@ -6,6 +6,7 @@ import 'package:extension_enabler/models/extension_details.dart';
 //1. WHEN USER IS CREATING A NEW EXTENSION
 //2. WHEN USER IS UPDATING AN EXISTING EXTENSION
 ExtensionDetails getExtensionDetails({ExtensionDetails? details}) {
+  //IF DETAILS IS NULL CREATE A NEW EXTENSION DETAILS OBJECT
   ExtensionDetails extensionDetails = details ?? ExtensionDetails();
 
   Logger.normal("🌱 Enter the extension details: \n");

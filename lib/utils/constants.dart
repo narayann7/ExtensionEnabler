@@ -47,6 +47,7 @@ Happy Coding & Keep Learning   💖
 
 ''';
 
+/// ERROR MESSAGE FOR FILE NOT FOUND
 getErrorForFileNotFound() {
   Logger.error(
       "\n❌ Error: file not found, make sure there is web/index.html and web/manifest.json in your project\n");

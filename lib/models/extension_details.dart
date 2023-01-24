@@ -130,6 +130,7 @@ class ExtensionDetails {
             "Please enter a valid number between 100 and 800 (inclusive)");
       }
       return dimension;
+      //CATCHING THE ERROR IF THE DIMENSION IS NOT A NUMBER
     } on FormatException {
       throw Exception("Please enter a valid dimension (don't use px)");
     }

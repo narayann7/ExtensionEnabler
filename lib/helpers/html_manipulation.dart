@@ -7,6 +7,7 @@ import 'package:extension_enabler/utils/constants.dart';
 import 'package:extension_enabler/models/extension_details.dart';
 import 'package:extension_enabler/models/file_manipulation.dart';
 
+//TO MANIPULATE THE HTML FILE
 void htmlManipulation({required ExtensionDetails extensionDetails}) {
   try {
     FileManipulation indexHtml = FileManipulation();

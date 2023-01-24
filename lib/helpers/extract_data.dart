@@ -17,10 +17,10 @@ ExtensionDetails getExtractedData() {
     tempFile.setFilePath(filePath: "web", fileName: "manifest.json");
     //CONVERT THE JSON FILE TO A MAP
     Map<String, dynamic> manifest = jsonDecode(tempFile.getFileAsString());
+    //CHECK IF THE EXTENSION IS ENABLED
+    int isExtensionEnabled = manifest["manifest_version"] ?? 0;
 
-    bool isExtensionEnabled = manifest["manifest_version"] ?? false;
-
-    if (isExtensionEnabled) {
+    if (isExtensionEnabled != 0) {
       //GET THE DATA FROM THE MAP
       extensionDetails.name = manifest["name"];
       extensionDetails.version = manifest["version"];

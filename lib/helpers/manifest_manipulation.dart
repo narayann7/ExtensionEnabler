@@ -6,7 +6,8 @@ import 'package:extension_enabler/utils/constants.dart';
 import 'package:extension_enabler/models/extension_details.dart';
 import 'package:extension_enabler/models/file_manipulation.dart';
 
-manifestManipulation({required ExtensionDetails extensionDetails}) {
+//TO MANIPULATE THE MANIFEST FILE
+void manifestManipulation({required ExtensionDetails extensionDetails}) {
   try {
     FileManipulation manifestJson = FileManipulation();
 

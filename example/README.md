@@ -11,5 +11,5 @@ or add it as dev dependency in your pubspec.yaml:
 
 ```
 dev_dependencies:
-  extension_enabler: ^1.0.4
+  extension_enabler: ^1.0.5
 ```

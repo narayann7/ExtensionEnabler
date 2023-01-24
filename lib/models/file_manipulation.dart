@@ -34,19 +34,25 @@ class FileManipulation {
     }
   }
 
-  getFileAsString() {
+  //GET THE FILE AS A STRING
+  String getFileAsString() {
+    //IF FILE PATH IS EMPTY OR NULL THROW AN EXCEPTION
     if (_filePath == null || _filePath == "") {
       throw Exception("File path not set");
     } else {
+      //READ THE FILE AS A STRING
       return _file!.readAsStringSync();
     }
   }
 
+  //WRITE TO THE FILE
   writeToFile(String content) {
+    //IF FILE PATH IS EMPTY OR NULL THROW AN EXCEPTION
     if (_filePath == null || _filePath == "") {
       throw Exception("File path not set");
     } else {
-      return _file!.writeAsStringSync(content);
+      //WRITE THE CONTENT TO THE FILE
+      _file!.writeAsStringSync(content);
     }
   }
 }
