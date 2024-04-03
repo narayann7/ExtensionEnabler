@@ -1,3 +1,10 @@
+
+<div align="center">
+<h1 align="center"  style="font-size: 35px;">Check out video demo by clicking below 👇</h1>
+</div>
+
+[![IMAGE ALT TEXT](https://github.com/narayann7/ExtensionEnabler/assets/64174995/b059125d-cc25-43af-94a4-0c1ff34dc843)](https://youtu.be/LHiH8PrmcFw)
+
 <div align="center">
 <h1 align="center"  style="font-size: 35px;">🛠️ Extension Enabler 🛠️</h1>
 <p align="center">
@@ -5,7 +12,6 @@ A command line dev tool that enables flutter web app as chromium based extension
 </p>
 </div>
 
----
 
 ### How to install?
 
@@ -80,4 +86,4 @@ flutter pub run extension_enabler --help
 
 ---
 
-#### Created by [Narayan](https://www.linkedin.com/in/narayann/), connect with me [narayann.me](https://narayann.me/)
+#### Created by [Narayan](https://www.linkedin.com/in/narayann/), connect with me [narayann.me](https://narayann.DEV/)
